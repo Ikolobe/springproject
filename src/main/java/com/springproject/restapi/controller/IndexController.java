@@ -33,7 +33,6 @@ public class IndexController {
 	public ResponseEntity<Usuario> buscarPorId(@PathVariable(value = "id")Long id) {
 	
 	Usuario usuario = usuarioRepository.findById(id).get();
-	String senhaDecodificada = new Bcry
 	return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 	}
 	
