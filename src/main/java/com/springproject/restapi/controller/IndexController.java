@@ -1,5 +1,6 @@
 package com.springproject.restapi.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,15 +81,24 @@ public class IndexController {
 		Usuario usuarioAtualizado = usuarioRepository.save(usuario);
 		
 		return new ResponseEntity<Usuario>(usuarioAtualizado, HttpStatus.OK);
-			
+		
 	}
 	
-	@DeleteMapping(value = "/{id}", produces = "application/json")
+	@DeleteMapping(value = "/{id}", produces = "application/text")
 	public ResponseEntity<String> deletar(@PathVariable Long id) {
 		
 		usuarioRepository.deleteById(id);
 		
 		return new ResponseEntity<String>("Usuário Deletado", HttpStatus.OK);
 		
+	}
+	
+	@GetMapping(value = "/usuarioPorNome/{nome}", produces = "application/json")
+	public ResponseEntity<List<Usuario>> usuarioPorNome(@PathVariable String nome){
+		
+	
+	List<Usuario> user = usuarioRepository.findUserByNome(nome);
+	
+	return new ResponseEntity<List<Usuario>>(user, HttpStatus.OK);
 	}
 }

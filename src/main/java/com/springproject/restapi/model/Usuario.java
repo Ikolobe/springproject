@@ -57,7 +57,7 @@ public class Usuario implements UserDetails {
 	
 	inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id",table = "role", unique = false, updatable = false,
 	foreignKey = @ForeignKey(name="role_fk", value = ConstraintMode.CONSTRAINT)))
-	private List<Role> roles;/* Os papeis ou acessos*/
+	private List<Role> roles = new ArrayList<Role>();/* Os papeis ou acessos*/
 
 	public String getLogin() {
 		return login;
