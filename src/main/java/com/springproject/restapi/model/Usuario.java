@@ -38,10 +38,15 @@ public class Usuario implements UserDetails {
 	
 	
 	private String senha;
+	
 	private String nome;
+	
 	private String sobrenome;
+	
 	private String cpf;
+	
 	private int idade;
+	
 	private String email;
 	
 	
